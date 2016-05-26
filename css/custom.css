@@ -1,0 +1,21 @@
+body{
+	background : orange;
+}
+
+#taskList{
+	list-style: none;
+	padding : 0px;
+}
+#taskList li{
+	font-size 	: 24pt;
+	letter-spacing: 12px;
+	padding 	: 30px;
+}
+
+
+
+#taskList li:hover{
+	background 	: black;
+	color 		: orange;
+}
+
