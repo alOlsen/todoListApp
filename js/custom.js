@@ -16,6 +16,10 @@ $(document).ready(function(){
 		task = cleanUp(task);
 		//post clean up
 		//When the data is validated and ready to be sent
-		$("#todoForm").submit();
+		if( task != ""){
+			$("#todoForm").submit();
+		}else{
+			alert("Please enter a task");
+		}
 	});
 });

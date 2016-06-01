@@ -12,10 +12,21 @@ body{
 	padding 	: 30px;
 }
 
-
-
 #taskList li:hover{
 	background 	: black;
 	color 		: orange;
 }
 
+.tasksTable{
+	width 		: 100%;
+	border 		: solid 1px black;
+}
+
+.tasksTable td{
+	border 		: solid 1px black;	
+}
+
+.taskActions{
+	text-align  : center;
+	width 		: 10%;
+}
