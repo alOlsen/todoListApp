@@ -44,12 +44,13 @@
 <?php
 for($i = 0; $i < $num; $i++){
 	$row = mysqli_fetch_array($rec);
-	echo "<li>";
+	echo "<li id='".$row['taskID']."'>";
 	echo "<table class='tasksTable'><tr>";
 	echo "<td>";
 	echo $row['taskName'];
 	echo "</td>";
 	echo "<td class='taskActions'>";
+	echo "<span class='fa fa-check'></span>";
 	echo "<span class='fa fa-trash'></span>";
 	echo "</td>";
 	echo "</tr></table>";

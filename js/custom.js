@@ -22,4 +22,26 @@ $(document).ready(function(){
 			alert("Please enter a task");
 		}
 	});
+
+	$(".taskActions span").click( function(){
+		console.log("test click")
+		console.log( $(this) );
+		console.log( $(this).attr("class") );
+
+		var actionType 	= $(this).attr("class");
+		var taskID 	 	= $(this).parent().parent().parent().parent().parent().attr("id");
+
+		if( actionType == "fa fa-trash"){
+			console.log( "Clicked on Trash Icon" );
+		}else if( actionType == "fa fa-check"){
+			console.log( "Clicked on Check Icon" );
+		}
+
+		console.log(  );
+
+
+
+	})
+
+
 });
