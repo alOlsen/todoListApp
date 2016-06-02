@@ -33,8 +33,22 @@ $(document).ready(function(){
 
 		if( actionType == "fa fa-trash"){
 			console.log( "Clicked on Trash Icon" );
+			$.post( "processData.php", { actionType: "delete", taskID: taskID }).done(function( data ) {
+				    console.log( JSON.parse(data) );
+				  });
 		}else if( actionType == "fa fa-check"){
 			console.log( "Clicked on Check Icon" );
+			$.post( "processData.php", { actionType: "update", taskID: taskID, taskStatus: 1 }).done(function( data ) {
+				    data = JSON.parse(data);
+				    console.log( data.status );
+				    console.log( data.taskID )
+
+				    if( data.status == "update complete"){
+				    	$("#"+data.taskID).css("background", "green")
+				    }
+
+
+				  });
 		}
 
 		console.log(  );
