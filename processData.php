@@ -1,6 +1,7 @@
 <?php
  	include("obj/dbCon.php");
 
+ 	$arr = false;
  	//echo "Hello";
  	$actionType = $_POST['actionType'];
 
@@ -17,7 +18,11 @@
 
  			break;
  		case "insert":
+ 				$taskInput = $_POST['taskInput'];
 
+ 				$sql		= "INSERT INTO todotasks(taskName) VALUES('".$taskInput."')";
+ 				$rec = $conn->query( $sql );
+ 				$arr['status'] = "insertion complete";
  			break;
  		case "select":
 

@@ -17,7 +17,14 @@ $(document).ready(function(){
 		//post clean up
 		//When the data is validated and ready to be sent
 		if( task != ""){
-			$("#todoForm").submit();
+			//$("#todoForm").submit();
+			$.post( "processData.php", { actionType: "insert", taskInput: task }).done(function( data ) {
+				    serverResponse = JSON.parse(data);
+				  	if( serverResponse.status == "insertion complete"){
+				  		location.reload();
+				  	}
+				  });
+
 		}else{
 			alert("Please enter a task");
 		}
@@ -51,7 +58,7 @@ $(document).ready(function(){
 				  });
 		}
 
-		console.log(  );
+	
 
 
 

@@ -1,3 +1,79 @@
+function validate( inputType, userInput ){
+		
+
+		var valid = false;
+
+		switch( inputType ){
+			case 'normalString':
+					console.log( "Validating a String" );
+					userInput = cleanUp( userInput );
+					valid = true;
+				break;
+			case 'emailAddress':
+				console.log( "Validating Email Address" );
+					userInput = cleanUp( userInput );
+					if( userInput.indexOf("@") >= 0){
+						//valid so far...
+						if( userInput.indexOf(".") >= 0 ){
+							valid = true;
+						}
+					}
+				break;
+			case 'zipCode':
+					console.log( "Validating a zip code" );
+					userInput = cleanUp( userInput );
+					if( isNaN( userInput ) ){
+						valid = false;
+					}else{
+						//so far so good.
+						if( userInput.length === 5 ){
+							valid = true;
+						}else{
+							valid = false;
+						}
+					}
+				break;
+			case "creditCard":
+					console.log("Validating CC")
+					userInput = cleanUp( userInput );
+					if( isNaN( userInput ) ){
+						valid = false;
+					}else{
+						if( userInput.length == VISA){
+							valid = true;
+						}else{
+							valid = false;
+						}
+					}
+				break;
+			case "number":
+					userInput = cleanUp( userInput );
+					if( isNaN( userInput ) ){
+						valid = false;
+					}else{
+						valid = true;
+					}
+				break;
+		}
+		return valid;
+	}
+
+	function cleanUp( userInput ){
+		console.log("cleanUp() initiated...")
+		
+		var temp = userInput;
+		temp = temp.replace(/-/g, "");
+		temp = temp.replace("<", "&lt;");
+		temp = temp.replace(">", "&gt;");
+		temp = temp.replace("SELECT", "");
+		temp = temp.replace("DELETE", "");
+		temp = temp.replace("INSERT", "");
+		temp = temp.replace("alert()", "");
+		return temp;
+
+	}
+
+
 $(document).ready( function(){
 	var VISA = 16;
 	var DISCOVER = 14;
@@ -127,72 +203,12 @@ $(document).ready( function(){
 	} );
 });
 
-function validate( inputType, userInput ){
-		var valid = false;
-		switch( inputType ){
-			case 'normalString':
-					console.log( "Validating a String" );
-					userInput = cleanUp( userInput );
-					valid = true;
-				break;
-			case 'emailAddress':
-				console.log( "Validating Email Address" );
-					userInput = cleanUp( userInput );
-					if( userInput.indexOf("@") >= 0){
-						//valid so far...
-						if( userInput.indexOf(".") >= 0 ){
-							valid = true;
-						}
-					}
-				break;
-			case 'zipCode':
-					console.log( "Validating a zip code" );
-					userInput = cleanUp( userInput );
-					if( isNaN( userInput ) ){
-						valid = false;
-					}else{
-						//so far so good.
-						if( userInput.length == 5 ){
-							valid = true;
-						}else{
-							valid = false;
-						}
-					}
-				break;
-			case "creditCard":
-					console.log("Validating CC")
-					userInput = cleanUp( userInput );
-					if( isNaN( userInput ) ){
-						valid = false;
-					}else{
-						if( userInput.length == VISA){
-							valid = true;
-						}else{
-							valid = false;
-						}
-					}
-				break;
-			case "number":
-					userInput = cleanUp( userInput );
-					if( isNaN( userInput ) ){
-						valid = false;
-					}else{
-						valid = true;
-					}
-				break;
-		}
-		return valid;
-	}
 
-	function cleanUp( userInput ){
-		console.log("cleanUp() initiated...")
-		var temp = userInput;
-		temp = temp.replace(/-/g, "");
-		temp = temp.replace("<", "&lt;");
-		temp = temp.replace(">", "&gt;");
-		temp = temp.replace("SELECT", "");
-		temp = temp.replace("DELETE", "");
-		temp = temp.replace("INSERT", "");
-		temp = temp.replace("alert()", "");
-		return temp;
-	}
+
+
+
+
+
+
+
+

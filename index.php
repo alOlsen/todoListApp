@@ -32,7 +32,7 @@
 				<div class="col-md-10">
 					<form id="todoForm" action="processData.php" method="post">
 						<input type="text" class="form-control" placeholder="Text input" id="taskInput" name="taskInput">
-
+						<input type="hidden" name="actionType" value="insert"/>
 						<button type="button" class="btn btn-success" id="actionBtn">Success</button>
 					</form>
 				</div>
